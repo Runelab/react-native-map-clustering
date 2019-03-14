@@ -79,7 +79,7 @@ export default class MapWithClustering extends Component {
         } else {
           otherChildren.push(marker);
         }
-      }
+      } 
     });
 
     if (!this.superCluster) {
