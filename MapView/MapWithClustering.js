@@ -44,13 +44,6 @@ export default class MapWithClustering extends Component {
       this.createMarkersOnMap(this.state.currentChildren);
     }
   }
-  
-  handleRegionChangeComplete = (region) => {
-    if (this.props.onRegionChangeComplete) {
-      this.props.onRegionChangeComplete(region);
-    }
-    this.onRegionChangeComplete(region);
-  };
 
   onRegionChangeComplete = (region) => {
     const { latitude, latitudeDelta, longitude, longitudeDelta } = this.state.currentRegion;
@@ -181,7 +174,7 @@ export default class MapWithClustering extends Component {
         {...this.removeChildrenFromProps(this.props)}
         ref={(ref) => { this.root = ref; }}
         region={this.state.currentRegion}
-        onRegionChangeComplete={this.handleRegionChangeComplete}
+        onRegionChangeComplete={this.props.onRegionChangeComplete}
       >
         {this.state.clusteredMarkers}
         {this.state.otherChildren}
