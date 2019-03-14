@@ -174,7 +174,7 @@ export default class MapWithClustering extends Component {
         {...this.removeChildrenFromProps(this.props)}
         ref={(ref) => { this.root = ref; }}
         region={this.state.currentRegion}
-        onRegionChangeComplete={this.props.onRegionChangeComplete}
+        onRegionChangeComplete={this.onRegionChangeComplete}
       >
         {this.state.clusteredMarkers}
         {this.state.otherChildren}
