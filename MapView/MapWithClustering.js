@@ -54,8 +54,6 @@ export default class MapWithClustering extends Component {
         this.calculateClustersForMap(region);
       }
     }
-    if(this.props.onRegionChangeComplete)
-      this.props.onRegionChangeComplete(region)
   };
 
   createMarkersOnMap = () => {
@@ -131,7 +129,7 @@ export default class MapWithClustering extends Component {
 
   calculateClustersForMap = async (currentRegion = this.state.currentRegion) => {
     let clusteredMarkers = [];
-
+    if (this.props.onRegionChangeComplete) this.props.onRegionChangeComplete(region);
     if (this.props.clustering && this.superCluster) {
       const bBox = this.calculateBBox(this.state.currentRegion);
       let zoom = this.getBoundsZoomLevel(bBox, { height: h(100), width: w(100) });
